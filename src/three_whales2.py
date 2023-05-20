@@ -332,7 +332,7 @@ print(new_spaceship1.get_load_capacity(),
 
 lobj = []
 
-for i in range(2):
+for i in range(500):
     if random.randint(0, 1) == 1:
         lobj.append(Engine(1000, 40, 40, 10000))
     else:
