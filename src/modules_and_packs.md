@@ -2,6 +2,5 @@
 ![](/Images/modules_structure.png)
 
 [ссылка на .py файл основной программы](modules_and_packs.py) 
-
 ### Результат работы программы ###
-![](/Images/.png)
+![](/Images/modules_results.png)
