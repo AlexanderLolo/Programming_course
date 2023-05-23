@@ -1,4 +1,3 @@
 ### Cтруктура модулей и пакетов ###
 ![](/Images/modules_structure.png)
-
-### Ссылка на код программы ## 
+[ссылка на .py файл](modules_and_packs.py) 
