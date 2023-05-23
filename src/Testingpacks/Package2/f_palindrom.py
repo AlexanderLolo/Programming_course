@@ -1,11 +1,4 @@
-from Testpacks.Package1 import f_min
-
-def min3(n1,n2,n3):
-    if n1 <= n2 and n1 <= n3:
-        return n1
-    elif n2 <= n3:
-        return n2
-    return n3
+from Testingpacks.Package1 import f_min
 
 def palindrom(num):
     n = num

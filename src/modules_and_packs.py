@@ -1,5 +1,5 @@
-# from Testpacks.Package1 import f_min 
-from Testpacks.Package2 import f_palindrom 
+# from Testingpacks.Package1 import f_min
+from Testingpacks.Package2 import f_palindrom
 
 print("введите три целых числа")
 n = int(input("введите первое число"))
