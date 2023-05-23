@@ -1,1 +1,1 @@
-![структура модулей и пакетов](./Images/modules_structure)
+![структура модулей и пакетов](./Images/modules_structure.png)
