@@ -20,4 +20,4 @@
 ```
 # Текущее задание
 [ссылка на .py файл](first.py)
-[картинка](./Images/firstimage.png)
+!(../Images/firstimage.png)
