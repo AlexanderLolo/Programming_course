@@ -3,5 +3,8 @@
 ![](/Images/modules_structure.png)
 
 [ссылка на .py файл основной программы](modules_and_packs.py) 
-### Результат работы программы ###
+### Результат работы программы в Far ###
 ![](/Images/modules_result.jpg)
+
+### Результат работы программы в Ubuntu ###
+![](/Images/modules_result.ubuntu.jpg)
