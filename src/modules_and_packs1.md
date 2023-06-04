@@ -1,10 +1,10 @@
-:red_circle:***скриншот с выводом программы в ubuntu добавлен в конец файла***
-### Cтруктура модулей и пакетов ###
-![](/Images/modules_structure.png)
+### Файлы модулей ###
+1. [Modules_and_packs1.py](modules_and_packs1.py)
+2. [Package1/f_min1.py](./Testingpacks/Package1/f_min1.py)
+3. [Package2/f_palindrom1.py](./Testingpacks/Package2/f_palindrom1.py)
+4. [Modules_and_packs.log](Modules_and_packs.log)
 
-[ссылка на .py файл основной программы](modules_and_packs.py) 
-### Результат работы программы в Far ###
-![](/Images/modules_result.jpg)
+***В программе использовал комбинации исключений, asserts и логов***
 
-### Результат работы программы в Ubuntu ###
-![](/Images/modules_result.ubuntu.jpg)
+### Cкриншот отладки в visual studio ###
+![](/Images/modules_and_packs_debugging.jpg)
