@@ -1,9 +1,7 @@
 # Рефлексия
-1. В эталонном решении для теста (почти) пустого массива использовались две инструкции
-        `self.assertEqual(len(a1), 1)`
-        `self.assertEqual(a1[0], 1)`
+1. В эталонном решении для теста (почти) пустого массива использовались две инструкции `self.assertEqual(len(a1), 1)` и `self.assertEqual(a1[0], 1)`
 
-В моем решении я обошелся одной `self.assertEqual(sorting( [9] ), [9] )` руководствуясь тем, что `assertListEqual(first, second, msg=None)` **is used by default when comparing lists or tuples with assertEqual().**
+В моем решении я обошелся одной `self.assertEqual(sorting( [9] ), [9] )` руководствуясь тем, что `assertListEqual(first, second, msg=None)` **is used by default when comparing lists  or tuples with assertEqual().**
 
 2. В случайном тесте в эталонном решении результат сравнивался с результатом стандартной функции, в то время как в моем проверялись условия `self.assertLessEqual(list1[i], list1[i+1])`. Думаю, для проверки правильности сортировки эти подходы идентичны.
 
@@ -19,6 +17,6 @@
 
 # Задание 3.3
 
-1. 1. [ссылка на .py файл c функциями](files_exec2.py)
+1. [ссылка на .py файл c функциями](files_exec2.py)
 
 
