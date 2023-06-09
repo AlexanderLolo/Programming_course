@@ -14,7 +14,7 @@ def Dirdelete(path):
                     return False
 
                 for i in files:
-                    os.remove(root+i) 
+                    os.remove(os.path.join(root,i)) # использовал вместо "+"
 
             os.rmdir(path)            
             
