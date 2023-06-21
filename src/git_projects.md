@@ -18,4 +18,6 @@
 Познакомился с темой списковых включений. Непривычно, но конечно же все дело в практике.
 
 # Текущее задание
-![](/Images/firstimage.png)
+![](/Images/git_project_1.jpg)
+![](/Images/git_project_2.jpg)
+![](/Images/git_project_3.jpg)
