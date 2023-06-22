@@ -1,23 +1,67 @@
-# Рефлексия
-## Задание 4.1
+## 1.
+`Consider using enumerate instead of iterating with range and len`
+```
+>    for i in range(len(list)):
+>
+>        if list[i] in dict.keys():
+>           dict[list[i]] += 1
+>        else:
+>            dict[list[i]] = 1
+```
+исправлено на 
+```
+>   for i in list:
+>        if i in dict.keys():
+>            dict[i] += 1
+>        else:
+>            dict[i] = 1
+```
+## 2.	
+`Consider iterating the dictionary directly instead of calling .keys()`
+Исправлено на 
+```
+>   for i in list:
+>        if i in dict:
+>            dict[i] += 1
+>        else:
+>            dict[i] = 1
+```
+## 3.
+`Redefining built-in 'dict', “list”`
+Исправлено на `“dict_”, “list_”`
 
-Отметил для себя, что в эталонном решении полиморфизм использовался два раза
-1. При вызове метода `self._weapon.get_damage(dist)` вызываются разные методы для разных классов оружия. Это - **полиморфизм подтипов**
+## 4.	
+`Unused variable 'i'`
+ ```
+>list = []
+>    for i in range(100):
+>        list.append(random.randint(1,10))
+```
+исправлено на
+```
+>list = [random.randint(1, 10) for i in range(100)]
+```
 
-2. При вызове `def attack_enemy(self, enemy, dist)` похоже используется **ad hoc полиморфизм**, так как `enemy`, грубо говоря, может быть и животным, если реализовать отдельный такой класс. Главное, чтобы был реализован метод `enemy.receive_damage`. В то же время, это не совсем полноценный ad hoc полиморфизм, так как набор передаваемых параметров в метод `receive_damage` должен быть одинаковым, иначе придется мудрить с `if`. В виду вышесказанного, данный полиморфизм также очень похож на полиморфизм подтипов, разве что `enemy` не обязательно здесь должны быть подтипами одного и того же типа.
+## 5.
+`Argument name "n" doesn't conform to snake_case naming style`
+```
+>def second_excersise_funct(list_, n):
+```
+Исправлено на 
+```
+>def second_excersise_funct(list_, num):
+```
 
-## Задание 4.2
-
-Вместо обычного цикла использовал новую особенность, как в обучающих материалах
+## 6.
+`Missing function or method docstring`
+Исправлено на 
 
 ```
-> barsik = Cat()
-> galka = Bird()
-> ams = [barsik, galka]
-
-> for ani in ams:
->     ani.Run(10)
+>def second_excersise_funct(list_, num):
+>    '''returns list's values which number is more than num '''
 ```
-# Текущее задание
-[ссылка на .py файл](first.py)
-![](/Images/firstimage.png)
+## 7.	
+`Missing module docstring`
+Поместил в начало всего модуля описание
+
+
