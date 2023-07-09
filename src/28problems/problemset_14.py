@@ -1,8 +1,8 @@
 def Unmanned(L: int, N: int, track: list) -> int:
 # Определяем количество светофоров на пути
     num_of_traf = 0
-    for i in range(N):
-        if track[i][0] >= L:
+    for elem in track:
+        if elem[0] >= L:
             break
         num_of_traf += 1
 
