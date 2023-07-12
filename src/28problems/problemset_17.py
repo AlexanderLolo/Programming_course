@@ -4,4 +4,4 @@ def LineAnalysis(line: str) -> bool:
         return True
 
     splitted = line.split("*")[1:-1]
-    return len(max(splitted)) == len(min(splitted))
+    return max(splitted) == min(splitted)
