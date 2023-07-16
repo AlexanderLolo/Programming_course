@@ -1,4 +1,4 @@
-def ShopOLAP(N: int, items: list) -> bool:
+def ShopOLAP(N: int, items: list) -> list:
 
     dict1 = {}
 
