@@ -11,5 +11,3 @@ def BiggerGreater(instr: str) -> str:
         remain = "".join(sorted(instr[i:]))
 
         return instr[:i] + remain[index_] + remain[:index_] + remain[index_+1:]
-
-    return ""
