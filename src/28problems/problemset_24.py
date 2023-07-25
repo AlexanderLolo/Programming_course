@@ -1,4 +1,4 @@
-def MatrixTurn(matrix: list, M: int, N: int, T: int):
+def MatrixTurn(matrix: list, N: int, M: int, T: int):
     # function rotates matrix clockwise
 
     for k in range(min(M, N)//2-1, -1, -1):
@@ -15,7 +15,7 @@ def MatrixTurn(matrix: list, M: int, N: int, T: int):
             matrix[k+i] = matrix[k+i][:k] + temp[i] + matrix[k+i][M-k:]
 
 
-def RotateLayer(matrix: list, M: int, N: int):
+def RotateLayer(matrix: list, N: int, M: int):
     # function rotates an outward layer 
 
     temp = [string[:] for string in matrix]
