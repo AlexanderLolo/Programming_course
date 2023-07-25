@@ -8,7 +8,7 @@ def MatrixTurn(matrix: list, N: int, M: int, T: int):
 
         # rotating this layer T Times
         for _ in range(T):
-            RotateLayer(temp, M-2*k, N-2*k)
+            RotateLayer(temp, N-2*k, M-2*k)
         
         # updating matrix with new layer
         for i in range(N-2*k):
