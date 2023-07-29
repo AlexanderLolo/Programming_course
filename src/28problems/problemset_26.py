@@ -18,4 +18,5 @@ def white_walkers(village: str) -> bool:
         
         elif char.isdigit():
             summ = int(char)
+            count = 0
     return flag
