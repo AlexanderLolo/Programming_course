@@ -2,7 +2,7 @@ def Football(flist: list, N: int) -> bool:
 
     fordered = sorted(flist)
 
-    if fordered == flist or N == 1:
+    if fordered == flist:
         return False
 
     diff = list(map(lambda x, y: 1 if x-y != 0 else 0, flist, fordered))
