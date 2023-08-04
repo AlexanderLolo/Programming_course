@@ -6,5 +6,6 @@ def Even_index(list1: list) -> None:
     print(list1[0])
     
     if len(list1) > 1:
-        Even_index(list1[2:])
+        del list1[0:2]
+        Even_index(list1)
     return None

@@ -3,7 +3,11 @@ def Secondmax(list1: list) -> int:
     if len(list1) < 2:
         return None
 
-    return Recurrent(list1[2:], max(list1[0], list1[1]), min(list1[0], list1[1]))
+    maxi = max(list1[0], list1[1])
+    mini = min(list1[0], list1[1])
+    del list1[0:2]
+
+    return Recurrent(list1, maxi, mini)
 
 
 def Recurrent(list1: list, max1: int, max2: int) -> int:
@@ -18,4 +22,6 @@ def Recurrent(list1: list, max1: int, max2: int) -> int:
     if list1[0] > max2:
         max2 = list1[0]
 
-    return Recurrent(list1[1:], max1, max2)
+    del list1[0:1]
+
+    return Recurrent(list1, max1, max2)

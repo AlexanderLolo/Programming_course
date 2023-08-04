@@ -5,6 +5,6 @@ def Even(list1: list) -> None:
 
     if list1[0] % 2 == 0:
         print(list1[0])
-    
-    Even(list1[1:])
 
+    del list1[0:1]
+    Even(list1)
