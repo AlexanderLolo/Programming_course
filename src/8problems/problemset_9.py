@@ -17,6 +17,3 @@ def gathering(string: str, balance: int, count: int, content: list) -> None:
 
     if balance > 0:
         gathering(string + ")", balance - 1, count, content)
-
-
-print(genparenthesis(3))
