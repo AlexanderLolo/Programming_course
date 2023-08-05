@@ -1,22 +1,22 @@
 import os
 
 
-def Filegathering(path: str) -> list:
+def file_gathering(path: str) -> list:
 
     if not os.path.isdir(path):
         print("каталог не существует")
         return -1
-    else:
-        content = []
-        return Gathering(path, content)
+
+    content = []
+    gathering(path, content)
+
+    return content
 
 
-def Gathering(path: str, content: list) -> list:
+def gathering(path: str, content: list) -> None:
 
     for element in os.listdir(path):
         if os.path.isdir(os.path.join(path, element)):
-            Gathering(os.path.join(path, element), content)
+            gathering(os.path.join(path, element), content)
         else:
             content.append(element)
-
-    return content

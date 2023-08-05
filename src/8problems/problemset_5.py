@@ -1,10 +1,15 @@
 def Even(list1: list) -> None:
 
-    if len(list1) == 0:
+    count = 0
+    length = len(list1)
+    Check(list1, count, length)
+
+
+def Check(list1: list, count, length) -> None:
+    if length == count:
         return None
 
-    if list1[0] % 2 == 0:
-        print(list1[0])
+    if list1[count] % 2 == 0:
+        print(list1[count])
 
-    del list1[0:1]
-    Even(list1)
+    return Check(list1, count + 1, length)

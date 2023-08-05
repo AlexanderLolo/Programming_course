@@ -1,11 +1,14 @@
 def Even_index(list1: list) -> None:
 
-    if len(list1) == 0:
+    index = 0
+    length = len(list1)
+    Print_even(list1, index, length)
+
+
+def Print_even(list1: list, index, length) -> None:
+    if length <= index:
         return None
 
-    print(list1[0])
-    
-    if len(list1) > 1:
-        del list1[0:2]
-        Even_index(list1)
-    return None
+    print(list1[index])
+
+    return Print_even(list1, index + 2, length)
