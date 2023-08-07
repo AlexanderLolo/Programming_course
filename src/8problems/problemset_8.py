@@ -7,16 +7,16 @@ def file_gathering(path: str) -> list:
         print("каталог не существует")
         return -1
 
+    return gathering(path)
+
+
+def gathering(path: str) -> None:
+
     content = []
-    gathering(path, content)
-
-    return content
-
-
-def gathering(path: str, content: list) -> None:
 
     for element in os.listdir(path):
         if os.path.isdir(os.path.join(path, element)):
-            gathering(os.path.join(path, element), content)
+            content.extend(gathering(os.path.join(path, element)))
         else:
             content.append(element)
+    return content
