@@ -14,6 +14,7 @@
             return False
    
 3. стремился избежать вложенных конструкций if. Возможно получилось менее наглядно
+   
         elif char.isdigit():
             summ = int(char)
             count = 0
