@@ -17,6 +17,3 @@
         elif char.isdigit():
             summ = int(char)
             count = 0
-
-
-
