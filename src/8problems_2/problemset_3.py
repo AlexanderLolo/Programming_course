@@ -10,12 +10,10 @@ def EEC_help(arr1: list, arr2: list) -> bool:
         else:
             dict1[element] += 1
 
-    dict2 = {}
-
     for element in arr2:
-        if element not in dict2:
-            dict2[element] = 1
+        if element not in dict1 or dict1[element] == 0:
+            return False
         else:
-            dict2[element] += 1
+            dict1[element] -= 1
 
-    return dict1 == dict2
+    return True
