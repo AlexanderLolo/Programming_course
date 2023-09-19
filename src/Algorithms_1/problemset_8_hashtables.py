@@ -14,6 +14,9 @@ class Hashtable:
         if self.slots[pos] is None:
             return pos
 
+        if self.slots[pos] == value:
+            return None
+
         newpos = pos + self.step
         while newpos % self.size != pos:
             if self.slots[newpos] is None:
