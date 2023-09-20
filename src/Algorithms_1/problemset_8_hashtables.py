@@ -35,6 +35,9 @@ class HashTable:
     def find(self, value):
 
         pos = self.hash_fun(value)
+        
+        if self.slots[pos] is None:
+            return None
         if self.slots[pos] == value:
             return pos
 
