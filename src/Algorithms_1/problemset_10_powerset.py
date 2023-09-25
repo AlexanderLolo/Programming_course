@@ -25,7 +25,8 @@ class PowerSet:
 
         if value in self.slots.keys():
             self.slots.pop(value)
-        return None
+            return True
+        return False
 
     def intersection(self, set2):
 
