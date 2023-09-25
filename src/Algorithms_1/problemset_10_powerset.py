@@ -12,6 +12,15 @@ class PowerSet:
             self.slots[value] = None
         return None
 
+    def get(self, value):
+
+        # возвращает True если value имеется в множестве,
+        # иначе False
+
+        if value in self.slots.keys():
+            return True
+        return False
+
     def remove(self, value):
 
         if value in self.slots.keys():

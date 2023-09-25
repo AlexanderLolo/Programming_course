@@ -6,7 +6,10 @@ class PowerSet_test(unittest.TestCase):
 
     def test_regression(self):
         aset = PowerSet()
+        self.assertEqual(aset.get("1"), False)
         aset.put("1")
+        self.assertEqual(aset.get("1"), True)
+        self.assertEqual(aset.get("2"), False)
         self.assertEqual(list(aset.slots.keys())[0], "1")
         self.assertEqual(aset.size(), 1)
         aset.put("1")
