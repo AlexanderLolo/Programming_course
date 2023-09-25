@@ -30,26 +30,33 @@ class PowerSet:
 
     def intersection(self, set2):
 
-        intersect = {}
+        intersect = PowerSet()
         for element in set2.slots.keys():
             if element in self.slots.keys():
-                intersect[element] = None
-        self.slots = intersect
-        return None
+                intersect.put(element)
+        return intersect
 
     def union(self, set2):
         # объединение текущего множества и set2
+        unionset = PowerSet()
+        for element in self.slots.keys():
+            unionset.put(element)
+
         for element in set2.slots.keys():
             if element not in self.slots.keys():
-                self.slots[element] = None
-        return None
+                unionset.put(element)
+        return unionset
 
     def difference(self, set2):
         # разница текущего множества и set2
+        diffset = PowerSet()
+        for element in self.slots.keys():
+            diffset.put(element)
+
         for element in set2.slots.keys():
             if element in self.slots.keys():
-                self.slots.pop(element)
-        return None
+                diffset.remove(element)
+        return diffset
     
     def issubset(self, set2):
         # возвращает True, если set2 есть
