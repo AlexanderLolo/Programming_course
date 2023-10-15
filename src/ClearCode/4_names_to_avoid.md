@@ -15,11 +15,13 @@ class DynArray:
 
 # 4
 def odometer(oksana: list) -> int:
+
     dist: int = 0 ##### distance_km
     for i in range(0,len(oksana),2):
 
 # 5
 def WordSearch(leng: int, string1: str, subs: str) -> list:
+
     list1 = StringSplit(leng, string1)
     list2 = [] ##### word_in_strings_flags
 
