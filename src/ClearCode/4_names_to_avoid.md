@@ -37,11 +37,13 @@ def PrintingCosts(str1: str) -> int:
 
 # 8
 def MassVote(N: int, votes: list) -> str:
+
     vmax = max(votes) 
     ##### number_of_max_votes
 
 # 9
 def Unmanned(L: int, N: int, track: list) -> int:
+
     Определяем количество светофоров на пути
     num_of_traf = 0
     ...
