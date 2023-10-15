@@ -37,7 +37,6 @@ def PrintingCosts(str1: str) -> int:
 
 # 8
 def MassVote(N: int, votes: list) -> str:
-
     vmax = max(votes) ##### number_of_max_votes
 
 # 9
@@ -46,7 +45,8 @@ def Unmanned(L: int, N: int, track: list) -> int:
     num_of_traf = 0
 ...
 Время прохождения маршрута
-    time = track[0][0] + Waitingtime(track[0][0], track[0]) ##### rout_time_hrs = ...
+    time = track[0][0] + Waitingtime(track[0][0], track[0]) 
+    ##### time - rout_time_hrs
 
 
 # 10, 11
