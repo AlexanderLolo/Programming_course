@@ -1,13 +1,16 @@
 ## class names
 # 1
+
 class LinkedList:   ##### class SingleLinkedList (первое и второе слова не являются существительным, но имена вроде смотрятся нормально)
 class LinkedList2:  ##### class DoubleLinkedList
 
 # 2
+
 class MoolokSP(Spaceship) ##### MoolokSpaceship(Spaceship)
 class HumanSP(Spaceship) ##### HumanSpaceship(Spaceship)
 
 # 3
+
 class Human(Ranger):##### HumanRanger(Ranger)
 class Moolok(Ranger): ##### MoolokRanger(Ranger)
 
@@ -16,12 +19,14 @@ class Stack ##### TailStack
 class Stack_old #### HeadStack
 
 # 5
+
 class OrderedStringList ##### StringOrderedList
 
 
 ## methods names
 
 # 1
+
 class DynArray:
     def __getitem__(self, pos):
 
