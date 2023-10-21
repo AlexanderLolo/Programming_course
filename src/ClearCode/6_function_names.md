@@ -1,4 +1,4 @@
-# fucntion names
+# Function names
 ## 1. функция возвращает первую цифру факториала числа N
     def squirrel(N: int): #### def left_factorial_digit #### def calc_left_fact_digit
     трудно уложиться в 20 символов и не хотелось сокращать factorial до fact
