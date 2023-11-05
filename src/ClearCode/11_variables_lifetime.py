@@ -27,11 +27,11 @@ def PatternUnlock(N, hits):
     dict_code = {6: [1, 1], 1: [1, 2], 9: [1, 3], 5: [2, 1], 2: [2, 2], 8: [2, 3], 4: [3, 1], 3: [3, 2], 7: [3, 3]}
     dist = 0
 
-    # Вычисление расстояния убираем в отдельную функию
+    # Вычисление расстояния убираем в отдельную функцию
     for key in range(N - 1):
         dist += calculate_distance(dict_code, hits[key], hits[key + 1])
 
-    # Форматирование ответа убираем в отдельную функию
+    # Форматирование ответа убираем в отдельную функцию
     return format_distance(dist)
 
 def calculate_distance(dict_code, hit1, hit2):
