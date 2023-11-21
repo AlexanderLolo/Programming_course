@@ -1,5 +1,5 @@
 import unittest
-from ps_1_SimpleTree import SimpleTreeNode, SimpleTree
+from problemset_1_SimpleTree import SimpleTreeNode, SimpleTree
 
 
 class SimpleTree_test(unittest.TestCase):
@@ -7,7 +7,6 @@ class SimpleTree_test(unittest.TestCase):
     def setUp(self):
         self.Root = SimpleTreeNode(0, None)
         self.SimpleTree = SimpleTree(self.Root)
-
         self.Child1 = SimpleTreeNode(1, None)
         self.Child2 = SimpleTreeNode(2, None)
         self.Child3 = SimpleTreeNode(3, None)
@@ -60,7 +59,7 @@ class SimpleTree_test(unittest.TestCase):
         self.assertEqual(self.Child3.Parent, self.Child2)
 
     def test_count(self):
-        self.assertEqual(self.SimpleTree.Count(), 2)
+        self.assertEqual(self.SimpleTree.Count(), 5)
         self.assertEqual(self.SimpleTree.LeafCount(), 3)
 
 

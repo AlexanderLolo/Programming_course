@@ -63,32 +63,31 @@ class SimpleTree:
         self.AddChild(NewParent, OriginalNode)
 
     def Count(self):
-		# количество узлов
+		# подсчитываем количество узлов
+        if self.Root is None:
+            return 0
+        return self.Num_Of_Nodes(self.Root)
+
+    def Num_Of_Nodes(self, node):
+        num_of_nodes = 1
+
+        for children_node in node.Children:
+            num_of_nodes += self.Num_Of_Nodes(children_node)
+        return num_of_nodes
+
+    def LeafCount(self):
+		# подсчитываем количество листьев
         if self.Root is None:
             return 0
 
-        return self.Num_leaves_or_nodes(self.Root, False)
+        return self.Num_Of_Leaves(self.Root)
 
-    def LeafCount(self):
-		# количество листьев
-        if self.Root is None or len(self.Root.Children) == 0:
-            return 0
-
-        return self.Num_leaves_or_nodes(self.Root, True)
-
-    def Num_leaves_or_nodes(self, node, isLeaves):
-        num_of_nodes = 0
+    def Num_Of_Leaves(self, node):
         num_of_leaves = 0
-
         if len(node.Children) == 0:
             num_of_leaves += 1
-        else:
-            num_of_nodes += 1
 
         for children_node in node.Children:
-            num_of_nodes += self.Num_leaves_or_nodes(children_node, False)
-            num_of_leaves += self.Num_leaves_or_nodes(children_node, True)
+            num_of_leaves += self.Num_Of_Leaves(children_node)
 
-        if isLeaves:
-            return num_of_leaves
-        return num_of_nodes
+        return num_of_leaves
