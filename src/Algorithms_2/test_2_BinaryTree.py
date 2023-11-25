@@ -12,7 +12,7 @@ class BinaryTree_test(unittest.TestCase):
     def test_Find_and_Add_key_Value(self):
         search_result = self.BinaryTree.FindNodeByKey(100)
         self.assertIs(search_result.NodeHasKey, True)
-        self.assertAlmostEqual(search_result.Node.NodeValue, "value 100")
+        self.assertEqual(search_result.Node.NodeKey, 100)
 
         # тестируем добавление левого узла
         search_result = self.BinaryTree.FindNodeByKey(50)
@@ -34,6 +34,49 @@ class BinaryTree_test(unittest.TestCase):
 
         # тестируем добавление узла, который уже есть
         self.assertIs(self.BinaryTree.AddKeyValue(200, "value 200"), False)
+
+    def test_Find_node_by_key(self):
+        self.BinaryTree.AddKeyValue(50, "value 50")
+        self.BinaryTree.AddKeyValue(200, "value 200")
+        self.BinaryTree.AddKeyValue(150, "value 150")
+        self.BinaryTree.AddKeyValue(300, "value 300")
+        self.BinaryTree.AddKeyValue(25, "value 25")
+        self.BinaryTree.AddKeyValue(75, "value 75")
+        self.BinaryTree.AddKeyValue(400, "value 400")
+
+        search_result = self.BinaryTree.FindNodeByKey(100)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 100)
+
+        search_result = self.BinaryTree.FindNodeByKey(50)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 50)
+
+        search_result = self.BinaryTree.FindNodeByKey(200)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 200)
+
+        search_result = self.BinaryTree.FindNodeByKey(150)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 150)
+
+        search_result = self.BinaryTree.FindNodeByKey(300)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 300)
+
+        search_result = self.BinaryTree.FindNodeByKey(25)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 25)
+
+        search_result = self.BinaryTree.FindNodeByKey(75)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 75)
+
+        search_result = self.BinaryTree.FindNodeByKey(500)
+        self.assertIs(search_result.NodeHasKey, False)
+        self.assertEqual(search_result.Node.NodeKey, 400)
+        self.assertIs(search_result.ToLeft, False)
+
 
     def test_find_min_max(self):
         self.BinaryTree.AddKeyValue(50, "value 50")
