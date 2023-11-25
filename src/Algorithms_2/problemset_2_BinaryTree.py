@@ -17,27 +17,27 @@ class BST:
     def __init__(self, node):
         self.Root = node # корень дерева, или None
 
-    def construct_bstfind_result(self, node, is_node_has_key, is_to_left):
+    def construct_bstfind_result(self, node: BSTNode, is_node_has_key: bool, is_to_left: bool) -> BSTFind:
         search_result = BSTFind()
         search_result.Node = node
         search_result.NodeHasKey = is_node_has_key
         search_result.ToLeft = is_to_left
         return search_result
 
-    def should_search_right_child(self, key, bst_node):
+    def should_search_right_child(self, key: int, bst_node: BSTNode) -> bool:
         return key > bst_node.NodeKey and bst_node.RightChild is not None
 
-    def should_search_left_child(self, key, bst_node):
+    def should_search_left_child(self, key: int, bst_node: BSTNode) -> bool:
         return key < bst_node.NodeKey and bst_node.LeftChild is not None
 
-    def can_be_right_child(self, key, bst_node):
+    def can_be_right_child(self, key: int, bst_node: BSTNode) -> bool:
         return key > bst_node.NodeKey and bst_node.RightChild is None
 
-    def can_be_left_child(self, key, bst_node):
+    def can_be_left_child(self, key: int, bst_node: BSTNode) -> bool:
         return key < bst_node.NodeKey and bst_node.RightChild is None
 
 
-    def CheckNodesWithKey(self, key, bst_node):
+    def CheckNodesWithKey(self, key: int, bst_node: BSTNode) -> BSTFind:
         # ищем в дереве узел и сопутствующую информацию по ключу
         if self.should_search_right_child(key, bst_node):
             return self.CheckNodesWithKey(key, bst_node.RightChild)
@@ -54,12 +54,13 @@ class BST:
         if bst_node.NodeKey == key:
             return self.construct_bstfind_result(bst_node, True, False)
 
-    def FindNodeByKey(self, key):
+    def FindNodeByKey(self, key: int) -> BSTFind:
         if self.Root is None:
             return BSTFind()
         return self.CheckNodesWithKey(key, self.Root)
 
-    def AddKeyValue(self, key, val):
+
+    def AddKeyValue(self, key: int, val: str) -> bool:
         # функция добавляет ключ-значение в дерево
         search_node_by_key_result = self.FindNodeByKey(key)
         if search_node_by_key_result.Node is None: # если в дереве нет узлов
@@ -79,7 +80,7 @@ class BST:
             search_node_by_key_result.Node.RightChild = new_node
             return True
 
-    def FinMinMax(self, fromNode, findMax):
+    def FinMinMax(self, fromNode: BSTNode, findMax: bool) -> BSTNode:
         # ищет максимальный/минимальный ключ в поддереве и возвращается объект типа BSTNode
         if fromNode is None:
             return None
@@ -87,38 +88,39 @@ class BST:
             return self.FindMax(fromNode)
         return self.FindMin(fromNode)
 
-    def FindMin(self, FromNode):
+    def FindMin(self, FromNode: BSTNode) -> BSTNode:
         node = FromNode
         while node.LeftChild is not None:
             node = node.LeftChild
         return node
 
-    def FindMax(self, FromNode):
+    def FindMax(self, FromNode: BSTNode) -> BSTNode:
         node = FromNode
         while node.RightChild is not None:
             node = node.RightChild
         return node
 
-    def DeleteNodeByKey(self, key):
+    def DeleteNodeByKey(self, key: int) -> bool:
         # функция удаляет узел по ключу
         search_by_key_result = self.FindNodeByKey(key)
 
         # если узел не найден
         if search_by_key_result.NodeHasKey is False:
             return False
-        
+
         # если нет вообще потомков
         if self.is_leaf(search_by_key_result.Node):
             self.delete_leaf(search_by_key_result.Node)
             return True
-        
+
         REPLACE_WITHOUT_BRANCHES = True
 
         # если нет правого потока
         if search_by_key_result.Node.RightChild is None:
-            self.replace_nodes(search_by_key_result.Node, search_by_key_result.Node.LeftChild, not REPLACE_WITHOUT_BRANCHES)
+            self.replace_nodes(search_by_key_result.Node,
+                               search_by_key_result.Node.LeftChild, not REPLACE_WITHOUT_BRANCHES)
             return True
-        
+
         # если у правого потомка нет левого потомка
         if search_by_key_result.Node.RightChild.LeftChild is None:
             # перенаправляем левого потомка удаляемого узла, левым потомком к правому потомку
@@ -126,7 +128,8 @@ class BST:
             search_by_key_result.Node.RightChild.LeftChild = search_by_key_result.Node.LeftChild
             search_by_key_result.Node.LeftChild = None
 
-            self.replace_nodes(search_by_key_result.Node, search_by_key_result.Node.RightChild, not REPLACE_WITHOUT_BRANCHES)
+            self.replace_nodes(search_by_key_result.Node,
+                               search_by_key_result.Node.RightChild, not REPLACE_WITHOUT_BRANCHES)
             return True
 
         # если у правого потомка есть левый потомок, то ищем минимальный ключ
@@ -134,28 +137,33 @@ class BST:
 
         if self.is_leaf(node_with_min_key):
             node_with_min_key.Parent.LeftChild = None
-            self.replace_nodes(search_by_key_result.Node, node_with_min_key, REPLACE_WITHOUT_BRANCHES)
+            self.replace_nodes(search_by_key_result.Node,
+                               node_with_min_key, REPLACE_WITHOUT_BRANCHES)
 
         else:
-            self.replace_nodes(node_with_min_key, node_with_min_key.RightChild, not REPLACE_WITHOUT_BRANCHES)
-            self.replace_nodes(search_by_key_result.Node, node_with_min_key, REPLACE_WITHOUT_BRANCHES)
+            self.replace_nodes(node_with_min_key,
+                               node_with_min_key.RightChild,
+                               not REPLACE_WITHOUT_BRANCHES)
+            self.replace_nodes(search_by_key_result.Node,
+                               node_with_min_key,
+                               REPLACE_WITHOUT_BRANCHES)
         return True
 
-    def delete_leaf(self, node_to_delete):
+    def delete_leaf(self, node_to_delete: BSTNode) -> None:
         if node_to_delete is self.Root:
             self.Root = None
             return None
-        
+
         if node_to_delete.Parent.LeftChild is node_to_delete:
             node_to_delete.Parent.LeftChild = None
         else:
             node_to_delete.Parent.RightChild = None
-        
+
         node_to_delete.Parent = None
         return None
 
 
-    def replace_nodes(self, node_to_substitute, node_to_insert, is_without_branches):
+    def replace_nodes(self, node_to_substitute: BSTNode, node_to_insert: BSTNode, is_without_branches: bool) -> None:
         # если is_without_branches is True, то оставляем ветви узла, который мы заменили
         if node_to_substitute is self.Root:
             node_to_insert.Parent = None
@@ -177,16 +185,16 @@ class BST:
         node_to_substitute.LeftChild = None
         node_to_substitute.Parent = None
 
-    def is_leaf(self, node):
+    def is_leaf(self, node: BSTNode) -> bool:
         return node.LeftChild is None and node.RightChild is None
 
-    def Count(self):
+    def Count(self) -> int:
 		# подсчитываем количество узлов
         if self.Root is None:
             return 0
         return self.Num_Of_Nodes(self.Root)
 
-    def Num_Of_Nodes(self, node):
+    def Num_Of_Nodes(self, node: BSTNode) -> int:
         num_of_nodes = 1
 
         if node.LeftChild is not None:
