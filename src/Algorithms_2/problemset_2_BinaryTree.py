@@ -34,7 +34,7 @@ class BST:
         return key > bst_node.NodeKey and bst_node.RightChild is None
 
     def can_be_left_child(self, key: int, bst_node: BSTNode) -> bool:
-        return key < bst_node.NodeKey and bst_node.RightChild is None
+        return key < bst_node.NodeKey and bst_node.LeftChild is None
 
 
     def CheckNodesWithKey(self, key: int, bst_node: BSTNode) -> BSTFind:

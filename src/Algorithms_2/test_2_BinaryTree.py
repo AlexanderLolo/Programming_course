@@ -36,8 +36,8 @@ class BinaryTree_test(unittest.TestCase):
         self.assertIs(self.BinaryTree.AddKeyValue(200, "value 200"), False)
 
     def test_Find_node_by_key(self):
-        self.BinaryTree1 = BST(None)
-        search_result = self.BinaryTree.FindNodeByKey(1)
+        BinaryTree1 = BST(None)
+        search_result = BinaryTree1.FindNodeByKey(1)
         self.assertIs(search_result.NodeHasKey, False)
 
         self.Root = BSTNode(100, "value 100", None)
@@ -85,6 +85,33 @@ class BinaryTree_test(unittest.TestCase):
         self.assertEqual(search_result.Node.NodeKey, 400)
         self.assertIs(search_result.ToLeft, False)
 
+    def test_Find_node_by_key_v2(self):
+        self.Root = BSTNode(8, "8", None)
+        self.BinaryTree = BST(self.Root)
+
+        self.BinaryTree.AddKeyValue(4, "4")
+        self.BinaryTree.AddKeyValue(12, "12")
+        self.BinaryTree.AddKeyValue(2, "2")
+        self.BinaryTree.AddKeyValue(6, "6")
+        self.BinaryTree.AddKeyValue(1, "1")
+        self.BinaryTree.AddKeyValue(3, "3")
+        self.BinaryTree.AddKeyValue(5, "5")
+        self.BinaryTree.AddKeyValue(7, "7")
+        self.BinaryTree.AddKeyValue(10, "10")
+        self.BinaryTree.AddKeyValue(14, "14")
+        self.BinaryTree.AddKeyValue(9, "9")
+        self.BinaryTree.AddKeyValue(11, "11")
+        self.BinaryTree.AddKeyValue(13, "13")
+        self.BinaryTree.AddKeyValue(15, "15")
+
+        search_result = self.BinaryTree.FindNodeByKey(1)
+        self.assertIs(search_result.NodeHasKey, True)
+        self.assertEqual(search_result.Node.NodeKey, 1)
+
+        self.BinaryTree.DeleteNodeByKey(1)
+        search_result = self.BinaryTree.FindNodeByKey(1)
+        self.assertIs(search_result.NodeHasKey, False)
+        self.assertEqual(search_result.Node.NodeKey, 2)
 
     def test_find_min_max(self):
         self.BinaryTree.AddKeyValue(50, "value 50")
