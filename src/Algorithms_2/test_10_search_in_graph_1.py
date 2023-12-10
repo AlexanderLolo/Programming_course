@@ -15,7 +15,8 @@ class SimpleGraph_test(unittest.TestCase):
             graph.AddEdge(i, i + 1)
 
 
-        self.assertEqual(graph.DepthFirstSearch(0, 3), [0, 1, 2, 3])
+        self.assertEqual(graph.DepthFirstSearch(0, 3), [graph.vertex[0], graph.vertex[1], graph.vertex[2], graph.vertex[3]])
+        self.assertEqual(graph.DepthFirstSearch(1, 3), [graph.vertex[1], graph.vertex[2], graph.vertex[3]])
         self.assertEqual(graph.DepthFirstSearch(0, 4), [])
 
 

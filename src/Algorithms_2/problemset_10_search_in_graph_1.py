@@ -92,7 +92,7 @@ class Stack:
 
     def size(self):
         return self.stack.get_size()
-    
+
     def build_array_from_stack(self):
         array = []
         tail_value = self.pop()
@@ -144,6 +144,10 @@ class SimpleGraph:
 
     def DepthFirstSearch(self, VFrom, VTo):
 
+        # узлы задаются позициями в списке vertex
+        # возвращается список узлов -- путь из VFrom в VTo
+        # или [] если пути нету
+
         stack = Stack()
         for vertex in self.vertex:
             vertex.Hit = False
@@ -157,7 +161,8 @@ class SimpleGraph:
 
         if self.m_adjacency[vertex_from][vertex_to] == 1:
             stack.push(vertex_to)
-            return stack.build_array_from_stack()[::-1]
+            indexes_of_rout_elems = stack.build_array_from_stack()[::-1]
+            return [self.vertex[index] for index in indexes_of_rout_elems]
 
         for _ in range(stack.size()):
             adjacent_vertex_index = self.find_adjacent_not_hitted_vertex(vertex_from)
